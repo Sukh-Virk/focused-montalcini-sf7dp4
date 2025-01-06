@@ -9,12 +9,11 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
- "dependencies": {
-  "react": "^19.0.0",
-  "react-dom": "^19.0.0",
-  "react-scripts": "^5.0.1"
-}
-,
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-scripts": "^5.0.1"
+  },
   "devDependencies": {
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
