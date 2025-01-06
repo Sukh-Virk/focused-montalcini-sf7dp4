@@ -1,0 +1,664 @@
+/* 🎯 General Reset */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  min-height: 100vh;
+  color: #f8fafc;
+}
+
+/* 🌌 Animated Background */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(135deg, #1e3c72, #4da8da, #ff6ec7);
+  background-size: 400% 400%;
+  animation: moveBackground 30s infinite alternate ease-in-out;
+}
+
+@keyframes moveBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* 🔄 Typing Animation with Wrapping */
+.typing-animation {
+  font-size: clamp(1.2rem, 2.5vw, 2rem); /* Dynamic font size */
+  font-weight: bold;
+  color: #ffffff;
+  overflow: hidden;
+  text-align: center;
+  max-width: 90vw;
+  margin: 20px auto;
+  padding: 10px;
+  word-wrap: break-word;
+  line-height: 1.4;
+  display: inline-block;
+  white-space: normal; /* Allow text wrapping */
+  word-break: break-word; /* Break long words */
+}
+
+/* Cursor Animation */
+.typing-animation .cursor {
+  display: inline-block;
+  background: #ff6ec7;
+  width: 5px;
+  height: 1em;
+  margin-left: 5px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+#about p strong {
+  color: #ff6ec7;
+  font-weight: bold;
+}
+
+/* 📱 Responsive Typing Animation for Small Screens */
+@media (max-width: 768px) {
+  .typing-animation {
+    font-size: clamp(1rem, 4vw, 1.4rem); /* Smaller font size for mobile */
+    text-align: center;
+    max-width: 95vw;
+    padding: 5px;
+  }
+
+  .typing-animation .cursor {
+    height: 0.8em; /* Adjust cursor height */
+    width: 4px;
+  }
+}
+
+/* 👀 Animation Classes */
+.shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+.glow {
+  animation: glow 1.5s infinite alternate;
+}
+
+.bounce {
+  animation: bounce 1s ease-in-out infinite;
+}
+
+.spin-once {
+  animation: spin-once 1.5s linear forwards;
+}
+
+@keyframes bounce {
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes spin-once {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    text-shadow: 0 0 15px #4da8da, 0 0 30px #ff6ec7;
+  }
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+}
+
+/* 🎯 Skip Button */
+.skip-button {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background: #1e3c72;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s ease-in-out;
+}
+
+.skip-button:hover {
+  background: #4da8da;
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+/* 🧭 Navbar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background: rgba(15, 23, 42, 0.95);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+nav .logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #4da8da;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  margin: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #c9d6ff;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #ff6ec7;
+}
+
+/* 🏠 Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 100px 10%;
+  min-height: 90vh;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 50%;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #ff6ec7;
+}
+
+.hero-content p {
+  margin-top: 20px;
+  color: #c9d6ff;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.hero .buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+/* Hero Image */
+.hero-image img {
+  width: 280px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.hero-image img:hover {
+  transform: scale(1.05);
+}
+
+/* 📚 About Section */
+/* 📚 About Section with Animated Background */
+#about {
+  padding: 100px 10%;
+  text-align: center;
+  color: #1e3c72;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 🌈 Animated Background */
+#about::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(135deg, #1e3c72, #4da8da, #ff6ec7, #ffc107);
+  background-size: 400% 400%;
+  animation: aboutBackground 12s infinite alternate ease-in-out;
+  opacity: 0.9;
+  border-radius: 10px;
+}
+
+/* 🔄 Background Animation */
+@keyframes aboutBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* 🖼️ About Me Container */
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  background: rgba(
+    255,
+    255,
+    255,
+    0.85
+  ); /* Slight white overlay for readability */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* 🖼️ About Me Image */
+.rounded-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ffffff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.rounded-image:hover {
+  transform: scale(1.05);
+}
+
+/* 📝 About Me Text */
+.about-text {
+  max-width: 600px;
+  text-align: left;
+  line-height: 1.6;
+}
+
+.about-text p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.about-text p strong {
+  color: #ff6ec7;
+  font-weight: bold;
+}
+
+/* 📱 Responsive Design for About Me Section */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .rounded-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  .about-text {
+    text-align: center;
+  }
+}
+
+/* 💼 Projects Section */
+#projects {
+  padding: 100px 10%;
+  text-align: center;
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+/* Section Title */
+#projects h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ff6ec7;
+}
+
+/* Intro Text */
+.project-intro {
+  font-size: 1rem;
+  margin-bottom: 40px;
+  line-height: 1.6;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #c9d6ff;
+}
+
+/* Project Grid */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Individual Project Card */
+.project-card {
+  background: #1e3c72;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: left;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out;
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+}
+
+.project-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #ff6ec7;
+}
+
+.project-card p {
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+  line-height: 1.4;
+  color: #c9d6ff;
+}
+
+/* Project Button Styling */
+.project-card .button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Primary Button */
+.button-primary {
+  background: #ff6ec7;
+  color: white;
+}
+
+.button-primary:hover {
+  background: #e05aa0;
+  transform: translateY(-3px);
+}
+
+/* Secondary Button */
+.button-secondary {
+  background: #4da8da;
+  color: white;
+}
+
+.button-secondary:hover {
+  background: #3b8db3;
+  transform: translateY(-3px);
+}
+
+/* Responsive Design for Projects Section */
+@media (max-width: 768px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+#projects h2 {
+  animation: fadeInDown 1.2s ease-in-out;
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 📬 Contact Section */
+#contact {
+  padding: 100px 10%;
+  text-align: center;
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+/* Section Title */
+#contact h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #ff6ec7;
+}
+
+/* Intro Text */
+.contact-intro {
+  font-size: 1rem;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #c9d6ff;
+}
+
+/* Goodbye Message */
+.goodbye-message {
+  margin-top: 30px;
+  font-size: 1rem;
+  font-style: italic;
+  color: #c9d6ff;
+  opacity: 0.9;
+}
+
+/* Contact Button Styling */
+#contact .button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Primary Button */
+.button-primary {
+  background: #ff6ec7;
+  color: white;
+  box-shadow: 0 4px 10px rgba(255, 110, 199, 0.4);
+}
+
+.button-primary:hover {
+  background: #e05aa0;
+  transform: translateY(-3px);
+}
+
+/* Hover Effect for Contact Section */
+#contact .button-primary:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive Design for Contact Section */
+@media (max-width: 768px) {
+  #contact {
+    padding: 60px 5%;
+  }
+
+  .contact-intro {
+    font-size: 0.95rem;
+  }
+
+  .goodbye-message {
+    font-size: 0.9rem;
+  }
+}
+
+#contact h2 {
+  animation: fadeInUp 1.2s ease-in-out;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🦶 Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #1e3c72;
+  color: white;
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-image img {
+    width: 200px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 🎯 General Button Styles */
+.button {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  white-space: nowrap;
+}
+
+/* ✨ Primary Button */
+.button-primary {
+  background: #ff6ec7;
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 10px rgba(255, 110, 199, 0.4);
+}
+
+.button-primary:hover {
+  background: #e05aa0;
+  transform: translateY(-3px);
+}
+
+/* 📂 Secondary Button */
+.button-secondary {
+  background: #4da8da;
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 10px rgba(77, 168, 218, 0.4);
+}
+
+.button-secondary:hover {
+  background: #3b8db3;
+  transform: translateY(-3px);
+}
+
+/* 🏠 Hero Section Buttons */
+.hero .buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero .buttons .button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease-in-out;
+}
